@@ -5,7 +5,7 @@
     'link' => '#',
 ])
 
-<div class="w-full bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden mb-6">
+<div class="prodCard w-full bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden mb-6">
     <img src="{{ $image }}" alt="Phone" class="w-full h-48 object-cover object-center">
     <div class="p-4">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">{{ $title }}</h3>

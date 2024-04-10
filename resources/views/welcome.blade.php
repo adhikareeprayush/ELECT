@@ -8,6 +8,10 @@
 
     {{-- Products --}}
     <x-recent>
+        @foreach ($products as $product)
+            <x-productsCard title="{{ $product->name }}" description="{{ $product->description }}"
+                image="https://placedog.net/500/300" link="#" />
+        @endforeach
     </x-recent>
 
     <div class="icontact flex flex-wrap md:justify-around my-5 sm:justify-center gap-3">
