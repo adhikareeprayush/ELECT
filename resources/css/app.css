@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .feature-section {
     display: flex;
     justify-content: space-between;

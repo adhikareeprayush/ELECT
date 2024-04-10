@@ -1,6 +1,5 @@
-ChatGPT
 <section class="bg-white dark:bg-gray-900">
-    <div class="px-4 mx-auto max-w-screen-xl text-center lg:py-16 py-24 lg:px-12">
+    <div class="px-4 mx-auto max-w-screen-xl text-center lg:py-16 py-8 lg:px-12">
         <a href="#"
             class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700"
             role="alert">

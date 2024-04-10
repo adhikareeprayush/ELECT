@@ -10,7 +10,7 @@
     <x-recent>
         @foreach ($products as $product)
             <x-productsCard title="{{ $product->name }}" description="{{ $product->description }}"
-                image="https://placedog.net/500/300" link="#" />
+                image="https://placedog.net/500/300" link="/products/{{ $product->id }}" />
         @endforeach
     </x-recent>
 
