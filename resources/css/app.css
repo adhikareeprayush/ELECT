@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.feature-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adjust the gap between feature cards as needed */
+}
+
+.feature-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: calc(33.333% - 20px); /* Adjust card width and gap */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card i {
+    color: #007bff; /* Adjust icon color */
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #333; /* Adjust heading color */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #666; /* Adjust paragraph color */
+    font-size: 16px;
+}
