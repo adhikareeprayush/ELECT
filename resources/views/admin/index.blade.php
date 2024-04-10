@@ -1,4 +1,4 @@
-<!doctype html>
+<!Doctype html>
 <html lang="en">
 
 <head>
@@ -10,15 +10,7 @@
 
 <body>
 
-    <x-nav>
-    </x-nav>
-
-    {{ $slot }}
-
-
-
-    <x-footer>
-    </x-footer>
+    @include('admin/sidebar')
 
 </body>
 

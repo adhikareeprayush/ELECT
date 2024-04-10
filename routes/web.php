@@ -22,3 +22,7 @@ Route::get('/products', function () {
     $products = App\Models\Products::latest()->simplePaginate(9);
     return view('products', ['products' => $products]);
 });
+
+Route::get('/admin', function(){
+    return view('admin.index');
+});
