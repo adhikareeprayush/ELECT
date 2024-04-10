@@ -29,3 +29,16 @@
         </div>
     </div>
 </nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const button = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+        const menu = document.getElementById('navbar-sticky');
+
+        button.addEventListener('click', function() {
+            const expanded = button.getAttribute('aria-expanded') === 'true' || false;
+            button.setAttribute('aria-expanded', !expanded);
+            menu.classList.toggle('hidden');
+        });
+    });
+</script>

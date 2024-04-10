@@ -28,7 +28,7 @@
     }).addTo(map);
 
     // Add a marker at a specific location
-    L.marker([51.5, -0.09]).addTo(map)
-        .bindPopup('A sample location.')
+    L.marker([27.6949663991989, 85.37251786596472]).addTo(map)
+        .bindPopup('One Forty')
         .openPopup();
 </script>
