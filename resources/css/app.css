@@ -6,8 +6,10 @@ html,
 body {
     min-height: 100vh;
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: space-between;
+    overflow-x: hidden;
 }
 
 .feature-section {
@@ -45,4 +47,26 @@ body {
 .feature-card p {
     color: #666; /* Adjust paragraph color */
     font-size: 16px;
+}
+
+.custom-file-input {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-file-input:hover {
+    background-color: #45a049;
+}
+
+/* Optional styles to hide the default input visually */
+.hidden {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
 }
