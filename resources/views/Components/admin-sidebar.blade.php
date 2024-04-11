@@ -75,42 +75,47 @@
 
 
 <script>
-    // hide the navbar on touch to screen or content for 5 sec
+    let lastScrollTop = 0;
     let nav = document.querySelector('nav');
-    let timeout;
-    document.addEventListener('touchstart', () => {
-        nav.style.display = 'none';
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            nav.style.display = 'flex';
-        }, 5000);
+
+    window.addEventListener('scroll', function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            nav.style.bottom = '-100px';
+        } else {
+            nav.style.bottom = '0';
+        }
+        lastScrollTop = scrollTop;
     });
-    document.addEventListener('touchend', () => {
-        nav.style.display = 'none';
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            nav.style.display = 'flex';
-        }, 5000);
+
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    window.addEventListener('touchstart', function (e) {
+        touchStartY = e.touches[0].clientY;
     });
-    document.addEventListener('touchmove', () => {
-        nav.style.display = 'none';
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            nav.style.display = 'flex';
-        }, 5000);
+
+    window.addEventListener('touchmove', function (e) {
+        touchEndY = e.touches[0].clientY;
+        if (touchStartY > touchEndY) {
+            nav.style.bottom = '-100px';
+        } else {
+            nav.style.bottom = '0';
+        }
     });
-    document.addEventListener('scroll', () => {
-        nav.style.display = 'none';
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            nav.style.display = 'flex';
-        }, 5000);
+
+    window.addEventListener('touchend', function () {
+        touchStartY = 0;
+        touchEndY = 0;
     });
-    document.addEventListener('click', () => {
-        nav.style.display = 'none';
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            nav.style.display = 'flex';
-        }, 5000);
+
+    document.addEventListener('click', function (e) {
+        if (!nav.contains(e.target)) {
+            nav.style.bottom = '-100px';
+        }
+    });
+
+    nav.addEventListener('click', function () {
+        nav.style.bottom = '0';
     });
 </script>
