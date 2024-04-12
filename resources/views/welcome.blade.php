@@ -14,10 +14,16 @@
         @endforeach
     </x-recent>
 
-    <div class="icontact flex flex-wrap md:justify-around my-5 sm:justify-center gap-3">
+    
+    <div class="flex flex-col md:flex-row justify-center">
+    <div class="w-full md:w-1/2 mb-4 md:mb-0 md:mr-6">
         <x-Contact></x-Contact>
+    </div>
+    <div class="w-full md:w-1/2">
         <x-image></x-image>
     </div>
+</div>
+
 
     <div id="map-container" class="mt-6 mb-6 flex w-full justify-center">
         <x-map>
