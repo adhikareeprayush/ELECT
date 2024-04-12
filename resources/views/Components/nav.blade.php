@@ -32,12 +32,26 @@ document.addEventListener("DOMContentLoaded", function() {
   function toggleMenu() {
     const expanded = button.getAttribute('aria-expanded') === 'true' || false;
     button.setAttribute('aria-expanded', !expanded);
-    menu.style.display = expanded ? 'block' : 'none';
+    menu.style.display = expanded ? 'none' : 'block';
   }
 
   button.addEventListener('click', toggleMenu);
 
-  // Keep the menu hidden by default, even on larger screens
-  menu.style.display = 'none';
+  // Check screen size and adjust menu display
+  function checkScreenSize() {
+    if (window.innerWidth > 768) { // Adjust the breakpoint as needed
+      menu.style.display = 'block'; // Show the menu as nav menu on larger screens
+      button.style.display = 'none'; // Hide the hamburger icon button
+    } else {
+      menu.style.display = 'none'; // Hide the menu on small screens
+      button.style.display = 'inline-flex'; // Show the hamburger icon button
+    }
+  }
+
+  // Initial check
+  checkScreenSize();
+
+  // Listen for window resize events
+  window.addEventListener('resize', checkScreenSize);
 });
 </script>
