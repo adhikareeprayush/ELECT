@@ -1,5 +1,5 @@
-<figure class="max-w-lg  d-flex align-items-center justify-center">
-    <img id="dogImage" class="h-auto max-w-full  rounded-lg" src="" alt="Random Dog Image">
+<figure class="max-w-lg mx-auto my-20">
+    <img id="dogImage" class="h-auto max-w-full rounded-lg" src="" alt="Random Dog Image">
 </figure>
 
 <script>
