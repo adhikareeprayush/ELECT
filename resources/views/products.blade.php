@@ -7,7 +7,7 @@
 
                 @foreach ($products as $product)
                     <x-productsCard title="{{ $product->name }}" description="{{ $product->description }}"
-                        image="https://placedog.net/500/300" link="/products/{{ $product->id }}" />
+                        image="{{ $product->image }}" link="/products/{{ $product->id }}" />
                 @endforeach
             </div>
 

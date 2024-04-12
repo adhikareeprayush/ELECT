@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 use App\Models\Messages;
 use App\Models\Products;
 use Illuminate\Support\Facades\DB;
@@ -34,36 +35,37 @@ Route::get('/admin/create', function(){
     return view('admin.create');
 });
 
-Route::patch('/admin/edit/{id}', function($id){
-
-    //validate
-    // request()->validate([
-    //     'name' => ['required', 'min:3'],
-    //     'description'=>['required','min:10'],
-    //     'image' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:2048'], 
-    //     'stock'=>['required'],
-    //     'price'=>['required'],
-    //     'quantity'=>['required'],
-    // ]);
-
-    $product = Products::findOrFail($id);
-
-
-    $product->update([
-        'name'=> request('name'),
-        'description'=> request('description'),
-        'price'=> request('price'),
-        'stock'=> request('stock'),
+Route::patch('/admin/edit/{id}', function(Request $request, $id) {
+    // Validate request data
+    $request->validate([
+        'name' => 'required',
+        'description' => 'required',
+        'stock' => 'required|numeric',
+        'price' => 'required|numeric',
+        'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
 
-    if (request()->hasFile('image')) {
-        $imagePath = request('image')->store('uploads', 'public'); // Save the image to the 'public/uploads' directory
-        $product->image = $imagePath; // Save the image path to the database
+    // Find the product by ID
+    $product = Products::findOrFail($id);
+
+    // Delete old image if a new image is uploaded
+    if ($request->hasFile('image')) {
+        if ($product->image) {
+            Storage::delete($product->image);
+        }
+        $product->image = $request->file('image')->store('product_images');
     }
 
+    // Update other product attributes
+    $product->name = $request->input('name');
+    $product->description = $request->input('description');
+    $product->stock = $request->input('stock');
+    $product->price = $request->input('price');
+    $product->update();
+
+    // Redirect back to product list
     return redirect('/admin/product-list');
 });
-
 
 
 

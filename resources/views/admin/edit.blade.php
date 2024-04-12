@@ -1,7 +1,6 @@
 <x-admin-layout>
-    {{-- Create Form --}}
     <div class="container mx-auto mt-20 px-4 w-1/2">
-        <form method="POST" action="/admin/edit/{{ $product->id }}">
+        <form method="POST" action="/admin/edit/{{ $product->id }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <x-input-grp label="Name" name="name" type="text" placeholder="Name" value="{{ $product->name }}"
@@ -23,5 +22,4 @@
 
         </form>
     </div>
-
 </x-admin-layout>
