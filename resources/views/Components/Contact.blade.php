@@ -1,14 +1,63 @@
-<form action="/" method="POST" class="lg:w-1/3 md:w-10/12 sm:w-10/12">
+<h2 class="text-3xl font-semibold text-gray-900 dark:text-gray-900 text-center mt-3">Contact Us</h2>
+
+<form action="/" method="POST" class="mt-6 mx-auto max-w-md space-y-4">
     @csrf
-    <x-input-grp label="Your Name" name="name" placeholder="John Doe" required>Enter your name</x-input-grp>
-    <x-input-grp label="Your Email" name="email" type="email" placeholder="Enter your Email" required>Enter your
-        Email</x-input-grp>
-    <x-input-grp label="Your Phone" name="phone" type="tel" placeholder="Enter your Phone" required>Enter your
-        number</x-input-grp>
-    <x-input-grp label="Your Subject" name="subject" placeholder="Enter your Subject" required>Enter your Subject
-    </x-input-grp>
-    <x-input-grp label="Your Message" name="message" type="textarea" placeholder="Enter your Message" required>Enter
-        your message</x-input-grp>
-    <button type="submit"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+    <div class="space-y-4">
+        <div>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Your Name</label>
+            <input type="text" id="name" name="name" class="input-field" placeholder="John Doe" required>
+        </div>
+        <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Your Email</label>
+            <input type="email" id="email" name="email" class="input-field" placeholder="name@gmail.com" required>
+        </div>
+        <div>
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Your Phone</label>
+            <input type="tel" id="phone" name="phone" class="input-field" placeholder="Enter your Phone" required>
+        </div>
+        <div>
+            <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Your Subject</label>
+            <input type="text" id="subject" name="subject" class="input-field" placeholder="Enter your Subject" required>
+        </div>
+        <div>
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Your Message</label>
+            <textarea id="message" name="message" rows="6" class="input-field" placeholder="Leave a comment..." required></textarea>
+        </div>
+    </div>
+    <button type="submit" class="btn-submit">Submit</button>
 </form>
+
+<style>
+.input-field {
+    border: 1px solid #CBD5E0;
+    background-color: #EDF2F7;
+    color: #4A5568;
+    padding: 10px;
+    border-radius: 0.375rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #4C51BF;
+    outline: none;
+}
+
+.btn-submit {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    color: #ffffff;
+    background-color: #2B6CB0;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #2C5282;
+}
+
+</style>
