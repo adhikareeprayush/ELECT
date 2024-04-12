@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Messages;
 use App\Models\Products;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -65,6 +66,7 @@ Route::patch('/admin/edit/{id}', function($id){
 
 
 
+
 Route::get('/admin/edit/{id}', function($id){
     $product = Products::find($id);
     return view('admin.edit', ['product' => $product]);
@@ -92,7 +94,19 @@ Route::get('admin/messages',function()
 
 Route::delete('admin/messages/delete/{id}',function($id)
 {
-    $message = App\Models\Messages::findOrFail($id);
+    $message = Messages::findOrFail($id);
     $message->delete(); 
     return redirect('/admin/messages');
+});
+
+Route::post('/', function(){
+    $message = new Messages();
+    $message->name = request('name');
+    $message->email = request('email');
+    $message->subject = request('subject');
+    $message->phone = request('phone');
+    $message->message = request('message');
+    $message->save();
+
+    return redirect('/');
 });

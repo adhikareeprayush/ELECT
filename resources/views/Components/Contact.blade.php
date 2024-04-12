@@ -1,9 +1,12 @@
-<form class="lg:w-1/3 md:w-10/12 sm:w-10/12">
+<form action="/" method="POST" class="lg:w-1/3 md:w-10/12 sm:w-10/12">
+    @csrf
     <x-input-grp label="Your Name" name="name" placeholder="John Doe" required>Enter your name</x-input-grp>
     <x-input-grp label="Your Email" name="email" type="email" placeholder="Enter your Email" required>Enter your
         Email</x-input-grp>
     <x-input-grp label="Your Phone" name="phone" type="tel" placeholder="Enter your Phone" required>Enter your
         number</x-input-grp>
+    <x-input-grp label="Your Subject" name="subject" placeholder="Enter your Subject" required>Enter your Subject
+    </x-input-grp>
     <x-input-grp label="Your Message" name="message" type="textarea" placeholder="Enter your Message" required>Enter
         your message</x-input-grp>
     <button type="submit"
