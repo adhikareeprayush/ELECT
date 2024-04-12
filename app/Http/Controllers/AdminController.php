@@ -1,19 +1,22 @@
-
 <?php
-use App\Models\Product; // Import the Product model
-use App\Models\Message; // Import the Message model
+namespace App\Http\Controllers;
 
-public function index()
+use App\Models\Messages; // Import the Message model
+use App\Http\Controllers\Controller;
+use App\Http\Requests\MessageRequest;
+use App\Models\Products;
+use Illuminate\Http\Request;
+
+class AdminController extends Controller // Assuming this is inside a controller class
 {
-   
-    // latest 5 products from the products table
-    $products = Product::latest()->take(5)->get();
-    // total products count
-    $productsCount = Product::count();
-    // messagelist pass to the view
-    $messages = Message::all(); // Fetch all messages
-    return view('admin.index', compact('products', 'productsCount', 'messages'));
+    // Fix: Correct the syntax for the function declaration
+    public function index() {
+        // latest 5 products from the products table
+        $products = Products::latest()->take(5)->get();
+        // total products count
+        $productsCount = Products::count();
+        // messagelist pass to the view
+        $messages = Messages::all(); // Fetch all messages
+        return view('admin.index', compact('products', 'productsCount', 'messages'));
     }
-
-
-
+}

@@ -6,9 +6,11 @@
 
     /* Message Container */
     .message {
-        background-color: #f4f4f4;
+        background-color: rgba(0, 123, 255, 0.1);
         padding: 20px;
+        width: fit-content;
         margin-bottom: 20px;
+        color: white;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         position: relative;
@@ -56,38 +58,66 @@
     }
 </style>
 
-<div class="message-list">
-    @php
-        $fakeMessages = [
-            [
-                'sender' => 'John Doe',
-                'email' => 'john@example.com',
-                'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            ],
-            [
-                'sender' => 'Jane Smith',
-                'email' => 'jane@example.com',
-                'content' => 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            ],
-            [
-                'sender' => 'Alice Johnson',
-                'email' => 'alice@example.com',
-                'content' => 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            ],
-        ];
-    @endphp
+@php
+    $fakeMessages = [
+        [
+            'sender' => 'John Doe',
+            'email' => '',
+            'content' => 'Hello, I am interested in your product.',
+        ],
+        [
+            'sender' => 'Jane Doe',
+            'email' => 'Jane@gmil.com',
+            'content' => 'I would like to know more about your product.',
+        ],
+    ];
+@endphp
 
-    @foreach($fakeMessages as $message)
-        <div class="message">
-            <p><strong>From:</strong> {{ $message['sender'] }}</p>
-            <p><strong>Email:</strong> {{ $message['email'] }}</p>
-            <p><strong>Message:</strong> {{ $message['content'] }}</p>
-            <div class="actions">
-                <a href="#" class="btn btn-primary">Reply</a>
-            </div>
-        </div>
-    @endforeach
+
+<div class="table-container p-3 ">
+    <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        From
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Email
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Message
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($fakeMessages as $message)
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        <th scope="row"
+                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            {{ $message['sender'] }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $message['email'] }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $message['content'] }}
+                        </td>
+                        <td class="px-6 py-4 text-sm font-medium">
+                            <button class="btn-primary">Reply</button>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+
+        </table>
+    </div>
+
 </div>
+
 
 <!-- Floating Reply Bar -->
 <div class="floating-reply-bar">
