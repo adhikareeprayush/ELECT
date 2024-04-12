@@ -37,16 +37,18 @@ Route::get('/admin/create', function(){
 
 Route::patch('/admin/edit/{id}', function(Request $request, $id) {
     // Validate request data
-    $request->validate([
-        'name' => 'required',
-        'description' => 'required',
-        'stock' => 'required|numeric',
-        'price' => 'required|numeric',
-        'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    ]);
+    // $request->validate([
+    //     'name' => 'required',
+    //     'description' => 'required',
+    //     'stock' => 'required|numeric',
+    //     'price' => 'required|numeric',
+    //     'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    // ]);
 
     // Find the product by ID
     $product = Products::findOrFail($id);
+
+    echo $product->name;
 
     // Delete old image if a new image is uploaded
     if ($request->hasFile('image')) {
