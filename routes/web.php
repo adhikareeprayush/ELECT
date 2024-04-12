@@ -27,8 +27,12 @@ Route::get('/products', function () {
 });
 
 Route::get('/admin', function(){
+    return view('admin.index');
+});
+
+Route::get('/admin/dashboard', function(){
     $products = Products::latest()->simplePaginate(9);
-    return view('admin.index', ['products' => $products]);
+    return view('admin.dashboard', ['products' => $products]);
 });
 
 Route::get('/admin/create', function(){
@@ -113,4 +117,16 @@ Route::post('/', function(){
     $message->save();
 
     return redirect('/');
+});
+
+
+Route::post('/admin',function( Request $request){
+    //check if the request has a username and password in admin database
+    $username = $request->input('username');
+    $password = $request->input('password');
+    $admin = DB::table('admins')->where('username', $username)->where('password', $password)->first();
+    if($admin)
+        return redirect('/admin/dashboard');
+    else
+        return redirect('/admin/index');
 });
