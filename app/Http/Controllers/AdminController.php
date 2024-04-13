@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Messages; // Import the Message model
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MessageRequest;
+
 use App\Models\Products;
 use Illuminate\Http\Request;
 

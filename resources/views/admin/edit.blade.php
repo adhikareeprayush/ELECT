@@ -3,15 +3,15 @@
         <form method="POST" action="/admin/edit/{{ $product->id }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
-            <x-input-grp label="Name" name="name" type="text" placeholder="Name" value="{{ $product->name }}"
+            <x-input-grp label="name" name="name" type="text" placeholder="Name" value="{{ $product->name }}"
                 isAdmin />
-            <x-input-grp label="Description" name="description" type="text" placeholder="Description"
+            <x-input-grp label="description" name="description" type="text" placeholder="Description"
                 value="{{ $product->description }}" isAdmin />
-            <x-input-grp label='Image' name='image' type='file' placeholder='Image' value="{{ $product->image }}"
+            <x-input-grp label='image' name='image' type='file' placeholder='Image' value="{{ $product->image }}"
                 isAdmin />
-            <x-input-grp label='Price' name='price' type='number' placeholder='Price' value="{{ $product->price }}"
+            <x-input-grp label='price' name='price' type='number' placeholder='Price' value="{{ $product->price }}"
                 isAdmin />
-            <x-input-grp label='Stock' name='stock' type='number' placeholder='Stock' value="{{ $product->stock }}"
+            <x-input-grp label='stock' name='stock' type='number' placeholder='Stock' value="{{ $product->stock }}"
                 isAdmin />
             <div class="flex gap-6">
                 <a href="/admin/product-list/"
